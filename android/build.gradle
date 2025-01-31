@@ -17,6 +17,14 @@ buildscript {
     repositories {
         google()
         jcenter()
+
+        dependencyResolutionManagement {
+            repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+            repositories {
+                mavenCentral()
+                maven { url 'https://jitpack.io' }
+            }
+	    }
     }
 
     dependencies {
@@ -46,5 +54,6 @@ android {
 }
 
 dependencies {
-    implementation 'com.arthenica:mobile-ffmpeg-' + safePackageName(safeExtGet('flutterFFmpegPackage', 'https')) + ':' + safePackageVersion(safeExtGet('flutterFFmpegPackage', 'https'), safeExtGet('mobileFFmpegVersion', '4.4'), safeExtGet('mobileFFmpegLTSVersion', '4.4'))
+    implementation 'com.github.tanersener:mobile-ffmpeg:v4.4.LTS'
+    // implementation 'com.arthenica:mobile-ffmpeg-' + safePackageName(safeExtGet('flutterFFmpegPackage', 'https')) + ':' + safePackageVersion(safeExtGet('flutterFFmpegPackage', 'https'), safeExtGet('mobileFFmpegVersion', '4.4'), safeExtGet('mobileFFmpegLTSVersion', '4.4'))
 }
